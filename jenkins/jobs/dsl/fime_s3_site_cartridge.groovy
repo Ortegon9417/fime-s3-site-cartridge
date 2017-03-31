@@ -77,6 +77,15 @@ fimeCreateBucket.with{
     maskPasswords()
   }
   label("docker")
+  scm{
+    git{
+      remote{
+        url(siteRepoUrl)
+        credentials("adop-jenkins-master")
+      }
+      branch("*/master")
+    }
+  }
   steps {
     shell('''
 set +x
